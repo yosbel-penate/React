@@ -1,23 +1,39 @@
-import logo from './logo.svg';
+import react from 'react';
 import './App.css';
+  class Holamundy extends react.Component
+  {
+    state={
+      show:true
+    }
+    toggleState=()=>{
+        this.setState({show:!this.state.show})
+    }
+    render(){
+      if (this.state.show) {
+          return  (
+            <div id='hello'>
+            <h3>hola mundo cruel {this.props.mytext} {this.props.subt}</h3>
+            <button onClick={this.toggleState} >Tocame</button>
+            </div>
+          )
+      } else {
+          return(
+            <div>
+              <h1>Muerte al enemigo</h1>
+              <button onClick={this.toggleState} >Tocame</button>
+            </div>
+            )
+      }
+    }
+  }
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Holamundy mytext='mi amor' subt="lolita"/>
+     <Holamundy mytext='mi amor' subt="lolita"/>
+     <Holamundy mytext='mi amor' subt="lolita"/>
+     <Holamundy mytext='mi amor' subt="lolita"/>
     </div>
   );
 }
